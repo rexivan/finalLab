@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="css/stylesheet.css">
+		<h1> WhaleCum! </h1>
+	</head>
+	<body>
+		<FORM METHOD="LINK" ACTION="login.php">
+		<INPUT TYPE="submit" VALUE="Login">
+		</FORM><br>
+		<FORM METHOD="LINK" ACTION="register.php">
+		<INPUT TYPE="submit" VALUE="Register">
+		</FORM>
+	</body>
+</html>
