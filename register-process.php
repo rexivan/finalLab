@@ -4,11 +4,11 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname ="mindatabas";
+$dbname ="db_finallab";
 
-
-$varEmailaddress = $_POST['emailaddress2'];
-$varLosenord = $_POST['losenord'];
+$varUsr = $_POST['form_usr'];
+$varEmailaddress = $_POST['form_eadress'];
+$varLosenord = $_POST['form_pw'];
 $md5_password = md5($varLosenord);
 $salt = uniqid(mt_rand(), true);
 $phpArray = array();
@@ -42,7 +42,7 @@ if(! $conn){
 
 
 if(0===count($phpArray)) {
-$sql = "INSERT INTO anvandare (demailaddress, dlosenord, dsalt) VALUES ('$varEmailaddress', '$md5_password', '$salt')" ;
+$sql = "INSERT INTO db_usrs (db_eadress, db_pw, db_slt, db_usr) VALUES ('$varEmailaddress', '$md5_password', '$salt', '$varUsr')" ;
 echo "Registration successfull!";
 
 if(! mysqli_query($conn, $sql)){
@@ -61,5 +61,3 @@ if(! mysqli_query($conn, $sql)){
 	</body>
 
 </html>
-
-asdasda
