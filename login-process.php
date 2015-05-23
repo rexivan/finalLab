@@ -9,14 +9,15 @@ $dbname ="db_finallab";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-$saltLosenord = md5("losenord");
+$varLosenord = $_POST['losenord'];
+$md5_password = md5($varLosenord);
 $emailLogin = $_POST['emailLogin'];
 
-$storedSalt = "SELECT 'db_slt' FROM db_usrs WHERE ('db_eadress' == 'emailLogin')";
+$storedSalt = "SELECT 'db_pw' FROM db_usrs WHERE ('db_eadress' == '$emailLogin')";
 
-if($saltLosenord == $storedSalt)
+if($md5_password == $storedSalt)
 {
-	$_SESSION['email']=emailLogin;
+	//$_SESSION['email']=emailLogin;
 	echo "Login succesful!";
 }
 else {
