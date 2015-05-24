@@ -58,7 +58,6 @@ else{
 	//header('Location: inlogg_grej.php');
 //}
 
-
 ?>
 
 <form action="login.php">
