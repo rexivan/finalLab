@@ -1,8 +1,14 @@
 <!DOCTYPE html>
-<?php session_start(); 
-
-?>
-<html>
+<?php 
+session_start(); 
+ if(isset($_SESSION['email'])){
+ 	echo "Welcome ". $_SESSION[ 'username'] . " You're already logged in.";
+?> <html> 		<form method="link" action="logout.php">
+		<input type="submit" value="Logout">
+		</form></html>
+<?php }
+ else{ ?>
+ 	<html>
 	<head>
 		<link rel="stylesheet" href="css/stylesheet.css">
 		<h1> Logga in </h1>
@@ -21,3 +27,8 @@
 
 	</body>
 </html>
+<?php 
+
+}
+
+?>
