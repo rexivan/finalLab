@@ -16,7 +16,6 @@ var buttonRegistrering = document.getElementById("btnRegistrering");
 buttonRegistrering.addEventListener("click", redirect1);
 
 function validera(){ 
-
 if(email.value === "" || validateEmail(email.value) == false)
 	{
 		alert("That's not a valid Email.");

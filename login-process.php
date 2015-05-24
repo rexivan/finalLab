@@ -26,7 +26,7 @@ echo "$md5_password och $storedSalt";
 if($md5_password == $storedSalt)
 {
 	$_SESSION['email']=$emailLogin;
-	$_SESSION['loggedIn']=true;
+	$_SESSION['loggedIn'] = 1;
 	echo "Login succesful!";
 	header('Location: http://localhost/finalLab/finalLab/index');
 }

@@ -54,9 +54,7 @@ if(! mysqli_query($conn, $sql)){
 else{
 	echo "Passwords dont match! Hit 'BACKSPACE' and try again!";
 }
-//else {
-	//header('Location: inlogg_grej.php');
-//}
+
 
 ?>
 
