@@ -1,8 +1,9 @@
 <!DOCTYPE html>
+<?php session_start(); ?>
 <html>
 	<head>
 		<link rel="stylesheet" href="css/stylesheet.css">
-		<h1> WhaleCum! </h1>
+		<h1> Welcome to my site! </h1>
 	</head>
 	<body>
 		<FORM METHOD="LINK" ACTION="login.php">
