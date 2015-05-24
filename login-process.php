@@ -15,6 +15,18 @@ $varLosenord = $_POST['losenord'];
 $md5_password = md5($varLosenord);
 $emailLogin = $_POST['emailLogin'];
 
+$phpArray = array();
+
+if (empty($emailLogin)) {
+array_push($phpArray, 1);} 
+
+
+if (!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/",$emailLogin)) {
+array_push($phpArray, 1);}
+
+
+
+
 
 $sql = "SELECT db_pw, db_usr FROM db_usrs WHERE db_eadress = '$emailLogin'";
 
@@ -22,10 +34,10 @@ $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 $storedSalt = $row["db_pw"];
 $storedUsername = $row["db_usr"];
-echo "$md5_password och $storedSalt";
 
 
-if($md5_password == $storedSalt)
+
+if($md5_password == $storedSalt && 0===count($phpArray))
 {
 	$_SESSION['email']=$emailLogin;
 	$_SESSION['username'] = $storedUsername;
@@ -33,7 +45,10 @@ if($md5_password == $storedSalt)
 	header('Location: http://localhost/finalLab/finalLab/comments.php');
 }
 else {
-	echo "Wrong password!";
+	echo "<script>
+		alert(Could not login, please check that your username and password is correct.);
+		window.location.href='http://localhost/finalLab/finalLab/comments.php';
+		</script>";
 }
 
 

@@ -55,10 +55,16 @@ if(! mysqli_query($conn, $sql)){
 		window.location.href='http://localhost/finalLab/finalLab/index.php';
 		</script>";
 }
+else{	echo "<script>
+		alert('You need to enter a valid email, a username and a password.');
+		window.location.href='http://localhost/finalLab/finalLab/register.php';
+		</script>";}
 }
 else{
-	echo "Passwords dont match! Hit 'BACKSPACE' and try again!";
-}
+echo "<script>
+		alert('Passwords do not match.');
+		window.location.href='http://localhost/finalLab/finalLab/register.php';
+		</script>";}
 
 
 ?>
