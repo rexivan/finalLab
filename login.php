@@ -15,7 +15,7 @@ session_start();
 	</head>
 	<body>
 
-		<form id="formen" name ="minForm" method="post" action="login-process.php">
+		<form id="formen" name ="minForm" method="post" login-process.php>
 			<label for="email"><h1>Min email-adress</h1></label>
 				<input type="text" id="emailLogin"name="emailLogin">
 			<label for="losenord"> <h1>Mitt losenord</h1></label>
