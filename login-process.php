@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
 <?php
 session_start();
-
+?>
+<html>
+<?php
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -15,20 +16,19 @@ $md5_password = md5($varLosenord);
 $emailLogin = $_POST['emailLogin'];
 
 
-$sql = "SELECT db_pw FROM db_usrs WHERE db_eadress = '$emailLogin'";
+$sql = "SELECT db_pw, db_usr FROM db_usrs WHERE db_eadress = '$emailLogin'";
 
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 $storedSalt = $row["db_pw"];
-
+$storedUsername = $row["db_usr"];
 echo "$md5_password och $storedSalt";
 
 
 if($md5_password == $storedSalt)
 {
 	$_SESSION['email']=$emailLogin;
-	$_SESSION['loggedIn'] = true;
-	$_SESSION['username'];
+	$_SESSION['username'] = $storedUsername;
 	echo "Login succesful!";
 	header('Location: http://localhost/finalLab/finalLab/comments.php');
 }
