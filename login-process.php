@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <?php
+session_start();
 
 $servername = "localhost";
 $username = "root";
@@ -26,9 +27,10 @@ echo "$md5_password och $storedSalt";
 if($md5_password == $storedSalt)
 {
 	$_SESSION['email']=$emailLogin;
-	$_SESSION['loggedIn'] = 1;
+	$_SESSION['loggedIn'] = true;
+	$_SESSION['username'];
 	echo "Login succesful!";
-	header('Location: http://localhost/finalLab/finalLab/index');
+	header('Location: http://localhost/finalLab/finalLab/comments.php');
 }
 else {
 	echo "Wrong password!";

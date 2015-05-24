@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <?php
+session_start();
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -44,11 +45,15 @@ if(! $conn){
 if($varLosenord == $varLosenord2){
 if(0===count($phpArray)) {
 $sql = "INSERT INTO db_usrs (db_eadress, db_pw, db_slt, db_usr) VALUES ('$varEmailaddress', '$md5_password', '$salt', '$varUsr')" ;
-echo "Registration successfull!";
 
 if(! mysqli_query($conn, $sql)){
 	die("Could not connect123:"  . mysqli_error($conn));
+
 }
+	echo "<script>
+		alert('Registration successfull!');
+		window.location.href='http://localhost/finalLab/finalLab/index.php';
+		</script>";
 }
 }
 else{
@@ -57,8 +62,4 @@ else{
 
 
 ?>
-
-<form action="login.php">
-			<input type="submit" value="Go to the login page">
-<br>
 </html>
