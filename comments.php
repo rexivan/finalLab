@@ -11,7 +11,7 @@ session_start();
 			<label for="namn"> <h1>Du postar kommentarer som:</h1></label>
 				<input type="text" name="email" id="email" size="36" value="<?php echo $_SESSION['username'];?>" readonly>
 			<label for="inlagg"><h1>Din kommerntar:</h1></label>
-				<input type="text" id="inlagg"name="inlagg"><br>
+				<textarea name="inlagg" rows ="5"> </textarea>><br>
 			<input type="submit" id="knappen">
 		</form>
 
