@@ -13,7 +13,15 @@ $varLosenord = $_POST['losenord'];
 $md5_password = md5($varLosenord);
 $emailLogin = $_POST['emailLogin'];
 
-$storedSalt = "SELECT 'db_pw' FROM db_usrs WHERE ('db_eadress' == '$emailLogin')";
+
+$sql = "SELECT db_pw FROM db_usrs WHERE db_eadress = '$emailLogin'";
+
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+$storedSalt = $row["db_pw"];
+
+echo "$md5_password och $storedSalt";
+
 
 if($md5_password == $storedSalt)
 {
