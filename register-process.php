@@ -52,7 +52,7 @@ if(! mysqli_query($conn, $sql)){
 }
 	echo "<script>
 		alert('Registration successfull!');
-		window.location.href='http://localhost/finalLab/finalLab/index.php';
+		window.location.href='http://localhost/finalLab/finalLab/login.php';
 		</script>";
 }
 else{	echo "<script>
