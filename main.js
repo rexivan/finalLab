@@ -19,10 +19,12 @@ function validera(){
 if(email.value === "" || validateEmail(email.value) == false)
 	{
 		alert("That's not a valid Email.");
+		window.location.href='http://localhost/finalLab/finalLab/login.php';
 	}
 else if(passwordLogin.value === "")
 	{
-		alert("Passwordcan not be empty.");
+		alert("Password can not be empty.");
+		window.location.href='http://localhost/finalLab/finalLab/login.php';
 	}
 
 }
