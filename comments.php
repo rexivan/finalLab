@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php 
 session_start();
+include 'db_connect.php';
 ?>
 <html>
 	<head>
@@ -14,23 +15,15 @@ session_start();
 				<textarea name="inlagg" rows ="5"> </textarea>><br>
 			<input type="submit" id="knappen">
 		</form>
+		<form method="link" action="logout.php">
+		<input type="submit" value="Logout">
+		</form><br>
 
 		<script src="js/main.js"></script>
 
-		<form action="register.php">
-			<input type="submit" value="Go to registrering!"
+
 </html>
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname ="db_finallab";
-
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-if(! $conn){
-	die('Could not connect: ' . mysql_error($conn));
-}
-
 
 $sql = "SELECT * FROM db_comments";
 $result = mysqli_query($conn, $sql);

@@ -1,26 +1,16 @@
 <?php
 session_start();
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname ="db_finallab";
+include 'db_connect.php';
+include 'function.php'
 
 $varUsr = $_SESSION['username'];
-$varComment = $_POST['inlagg'];
+$varComment = mysqli_real_escape_string($conn, $_POST['inlagg']);
 
 
 if (empty($varComment)) {
-	echo "<script>
-		alert('Comment field can't be empty.);
-		window.location.href='http://localhost/finalLab/finalLab/comments.php';
-		</script>";
+	alertEcho('Comment field can not be empty', 'comments.php');
 	}
-
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-if(! $conn){
-	die('Could not connect: ' . mysql_error($conn));
-}
 
 $sql = "INSERT INTO db_comments (cmt_usr, cmt_msg) VALUES ('$varUsr', '$varComment')" ;
 
@@ -28,7 +18,6 @@ if(! mysqli_query($conn, $sql)){
 	die("Could not connect123:"  . mysqli_error($conn));
 
 }
-echo "<script>
-		window.location.href='http://localhost/finalLab/finalLab/comments.php';
-		</script>";
+	alertEcho('Your comment have been posted.', 'comments.php');
+
 ?>

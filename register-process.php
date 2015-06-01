@@ -2,70 +2,50 @@
 <html>
 <?php
 session_start();
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname ="db_finallab";
 
-$varUsr = $_POST['form_usr'];
-$varEmailaddress = $_POST['form_eadress'];
-$varLosenord = $_POST['form_pw'];
-$varLosenord2 = $_POST['form_pw2'];
-$md5_password = md5($varLosenord);
+include 'db_connect.php';
+include 'function.php';
+
+$varUsr = mysqli_real_escape_string($conn, $_POST['form_usr']);
+$varEmailaddress = mysqli_real_escape_string($conn, $_POST['form_eadress']);
+$varLosenord = mysqli_real_escape_string($conn, $_POST['form_pw']);
+$varLosenord2 = mysqli_real_escape_string($conn, $_POST['form_pw2']);
 $salt = uniqid(mt_rand(), true);
+$hash = sha1($varLosenord . $salt);
 $phpArray = array();
-$sec = "2";
-
 
 if (empty($varLosenord)) {
 array_push($phpArray, 1);} 
 
-
-//if (!preg_match("/^[a-zA-Z ]*$/",$varNamn)) {
-//array_push($phpArray, 1);}
-
 if (empty($varEmailaddress)) {
 array_push($phpArray, 1);} 
-
 
 if (!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/",$varEmailaddress)) {
 array_push($phpArray, 1);}
 
-
-
-
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-if(! $conn){
-	die('Could not connect: ' . mysql_error($conn));
+$sqlmail = "SELECT * FROM db_usrs WHERE db_eadress = '$varEmailaddress'";
+$result = mysqli_query($conn, $sqlmail);
+$number_of_rows = mysqli_num_rows($result);
+if ($number_of_rows > 0)
+{
+    alertEcho('DEN FINNS REDAN FUCK YOU', 'register.php');
 }
-
-
-
 
 if($varLosenord == $varLosenord2){
 if(0===count($phpArray)) {
-$sql = "INSERT INTO db_usrs (db_eadress, db_pw, db_slt, db_usr) VALUES ('$varEmailaddress', '$md5_password', '$salt', '$varUsr')" ;
+$sql = "INSERT INTO db_usrs (db_eadress, db_pw, db_slt, db_usr) VALUES ('$varEmailaddress', '$hash', '$salt', '$varUsr')" ;
 
 if(! mysqli_query($conn, $sql)){
 	die("Could not connect123:"  . mysqli_error($conn));
 
 }
-	echo "<script>
-		alert('Registration successfull!');
-		window.location.href='http://localhost/finalLab/finalLab/login.php';
-		</script>";
-}
-else{	echo "<script>
-		alert('You need to enter a valid email, a username and a password.');
-		window.location.href='http://localhost/finalLab/finalLab/register.php';
-		</script>";}
+		alertEcho('Registration successfull!', 'index.php');
 }
 else{
-echo "<script>
-		alert('Passwords do not match.');
-		window.location.href='http://localhost/finalLab/finalLab/register.php';
-		</script>";}
-
-
+		alertEcho('You need to enter a valid email and username.', 'register.php');}
+}
+else{
+		alertEcho('Passwords do not match.', 'register.php');
+	}
 ?>
 </html>

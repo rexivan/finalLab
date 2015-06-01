@@ -22,6 +22,10 @@ session_start();
 				<input type="password" id="losenord" name="losenord"><br>
 				<br>
 			<input type="submit" name="submit" id="submit">
+		</form><br>
+				Not registered? Register now! <br>
+		<form method="link" action="register.php">
+		<input type="submit" value="Register">
 		</form>
 	<script src="main.js"></script>
 

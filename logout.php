@@ -1,4 +1,5 @@
-<?php 
-session_destroy(oid);
-	header('Location: http://localhost/finalLab/finalLab/index.php');
+<?php
+session_start();
+session_destroy();
+header("location:index.php");
 ?>
