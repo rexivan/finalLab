@@ -26,6 +26,7 @@ array_push($phpArray, 1);}
 $sqlmail = "SELECT * FROM db_usrs WHERE db_eadress = '$varEmailaddress'";
 $result = mysqli_query($conn, $sqlmail);
 $number_of_rows = mysqli_num_rows($result);
+
 if ($number_of_rows = 0){
 if($varLosenord == $varLosenord2){
 if(0===count($phpArray)) {

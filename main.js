@@ -23,7 +23,7 @@ if(email.value === "" || validateEmail(email.value) == false)
 	}
 else if(passwordLogin.value === "")
 	{
-		alert("Passwordcan not be empty.");
+		alert("Password can not be empty.");
 	}
 
 }

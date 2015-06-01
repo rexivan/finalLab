@@ -19,7 +19,7 @@ session_start();
 	</head>
 	<body>
 
-		<form id="formen" name ="minForm" action="login-process.php" onsubmit="return validera()" method="post">
+		<form id="formen" name ="minForm" action="login-process.php" onclick="return validera()" method="post">
 			<label for="email"><h1>Min email-adress</h1></label>
 				<input type="text" id="emailLogin"name="emailLogin">
 			<label for="losenord"> <h1>Mitt losenord</h1></label>
