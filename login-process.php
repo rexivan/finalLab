@@ -7,7 +7,7 @@ session_start();
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname ="db_finallab";
+$dbname = "db_finallab";
  
 $conn = mysqli_connect($servername, $username, $password, $dbname);
  
@@ -24,9 +24,9 @@ $row = mysqli_fetch_assoc($result);
 $storedSalt = $row["db_pw"];
 $storedUsername = $row["db_usr"];
  
+
  
- 
-if($md5_password == $storedSalt && 0===count($phpArray))
+if($md5_password == $storedSalt)
 {
         $_SESSION['email']=$emailLogin;
         $_SESSION['username'] = $storedUsername;

@@ -29,6 +29,6 @@ if(! mysqli_query($conn, $sql)){
 
 }
 echo "<script>
-		window.location.href='http://localhost/finalLab/finalLab/index-process.php';
+		window.location.href='http://localhost/finalLab/finalLab/comments.php';
 		</script>";
 ?>
