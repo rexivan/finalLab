@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <?php 
 session_start(); 
- if(isset($_SESSION['email'])){
- 	echo "Welcome ". $_SESSION[ 'username'] . " You're already logged in.";
 ?> <html> 	
 	<head>
 		<link rel="stylesheet" href="main.css">
 	</head>
+<?php	 
+	if(isset($_SESSION['email'])){
+ 	echo "Welcome ". $_SESSION[ 'username'] . " You're already logged in.";
+?>
+	<html>
 	<form method="link" action="logout.php">
 		<input type="submit" value="Logout">
 		</form><br>
@@ -21,13 +24,13 @@ session_start();
 		<h1> Logga in </h1>
 	<body>
 
-		<form id="formen" name ="minForm" action="login-process.php" onclick="return validera()" method="post">
+		<form id="formen" name ="inputForm" action="login-process.php" onsubmit="validera()" method="post">
 			<label for="email"><h1>Min email-adress</h1></label>
-				<input type="text" id="emailLogin"name="emailLogin">
+				<input type="text" id="emailLogin"name="emailLogin" required>
 			<label for="losenord"> <h1>Mitt losenord</h1></label>
-				<input type="password" id="losenord" name="losenord"><br>
+				<input type="password" id="losenord" name="losenord" required><br>
 				<br>
-			<input type="submit" name="submit" id="submit">
+		<input type="submit" value="Login" id="submit"/>
 		</form><br>
 				Not registered? Register now! <br>
 		<form method="link" action="register.php">

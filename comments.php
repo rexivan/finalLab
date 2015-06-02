@@ -5,7 +5,7 @@ include 'db_connect.php';
 ?>
 <html>
 	<head>
-		<link rel="stylesheet" href="css/stylesheet.css">
+		<link rel="stylesheet" href="main.css">
 	</head>
 	<body>
 		<form id="formen" name ="minForm" method="post" action="comments-process.php">

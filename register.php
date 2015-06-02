@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" href="css/stylesheet.css">
+		<link rel="stylesheet" href="main.css">
 		<h1> Registrering </h1>
 	</head>
 	<body>

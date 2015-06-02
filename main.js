@@ -9,23 +9,19 @@ passwordLogin = document.getElementById("losenord");
 var button = document.getElementById("submit");
 button.addEventListener("click", validera);
 
-var buttonLogin = document.getElementById("btnLogin");
-buttonLogin.addEventListener("click", redirect);
-
-var buttonRegistrering = document.getElementById("btnRegistrering");
-buttonRegistrering.addEventListener("click", redirect1);
 
 function validera(){ 
 
 if(email.value === "" || validateEmail(email.value) == false)
 	{
 		alert("That's not a valid Email.");
+		return false;
 	}
 else if(passwordLogin.value === "")
 	{
 		alert("Password can not be empty.");
+		return false;
 	}
-
 }
 
 function validateEmail(email) {
