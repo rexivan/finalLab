@@ -10,16 +10,16 @@ include 'db_connect.php';
 	<body>
 		<form id="formen" name ="minForm" method="post" action="comments-process.php">
 			<label for="namn"> <h1>Du postar kommentarer som:</h1></label>
-				<input type="text" name="email" id="email" size="36" value="<?php echo $_SESSION['username'];?>" readonly>
+				<input type="text" name="email" id="email" size="22" value="<?php echo $_SESSION['username'];?>" readonly>
 			<label for="inlagg"><h1>Din kommerntar:</h1></label>
-				<textarea name="inlagg" rows ="5"> </textarea>><br>
+				<textarea name="inlagg" rows ="5"> </textarea><br>
 			<input type="submit" id="knappen">
 		</form>
 		<form method="link" action="logout.php">
 		<input type="submit" value="Logout">
 		</form><br>
 
-		<script src="js/main.js"></script>
+		<script src="main.js"></script>
 
 
 </html>

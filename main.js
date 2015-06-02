@@ -1,7 +1,7 @@
 var email;
 var passwordLogin;
 
-window.onload = function() {
+window.onload = function(){
 
 email = document.getElementById("emailLogin");
 passwordLogin = document.getElementById("losenord");	

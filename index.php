@@ -3,20 +3,22 @@
 session_start(); 
  if(isset($_SESSION['email'])){
  	echo "Welcome ". $_SESSION[ 'username'] . " You're already logged in.";
-?> <html> 		<form method="link" action="logout.php">
+?> <html> 	
+	<head>
+		<link rel="stylesheet" href="main.css">
+	</head>
+	<form method="link" action="logout.php">
 		<input type="submit" value="Logout">
 		</form><br>
-		<form method="link" action="comment.php">
+		<form method="link" action="comment.php">	
 		<input type="submit" value="Go to comment section!">
 		</form></html>
 
 <?php }
  else{ ?>
  	<html>
-	<head>
 		<link rel="stylesheet" href="css/stylesheet.css">
 		<h1> Logga in </h1>
-	</head>
 	<body>
 
 		<form id="formen" name ="minForm" action="login-process.php" onclick="return validera()" method="post">

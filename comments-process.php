@@ -2,7 +2,7 @@
 session_start();
 
 include 'db_connect.php';
-include 'function.php'
+include 'function.php';
 
 $varUsr = $_SESSION['username'];
 $varComment = mysqli_real_escape_string($conn, $_POST['inlagg']);
