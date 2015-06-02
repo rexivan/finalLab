@@ -4,8 +4,8 @@ session_start();
 ?>
 <html>
 <?php
-include 'db_connect.php';
-include 'function.php';
+include 'functions/db_connect.php';
+include 'functions/function.php';
 $isCorrect = true;
 $varLosenord = mysqli_real_escape_string($conn, $_POST['losenord']);
 $emailLogin = mysqli_real_escape_string($conn, $_POST['emailLogin']);
@@ -35,7 +35,7 @@ else {
 }
 if($isCorrect == false)
 {
-	alertEcho('Could not login, please check that your username and password is correct.', 'index.php');
+	alertEcho('Could not login, please check that it is the correct password.', 'index.php');
 }
  
 ?>

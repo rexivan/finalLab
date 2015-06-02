@@ -3,8 +3,8 @@
 <?php
 session_start();
 
-include 'db_connect.php';
-include 'function.php';
+include 'functions/db_connect.php';
+include 'functions/function.php';
 
 $varUsr = mysqli_real_escape_string($conn, $_POST['form_usr']);
 $varEmailaddress = mysqli_real_escape_string($conn, $_POST['form_eadress']);

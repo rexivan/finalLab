@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-include 'db_connect.php';
-include 'function.php';
+include 'functions/db_connect.php';
+include 'functions/function.php';
 
 $varUsr = $_SESSION['username'];
 $varComment = mysqli_real_escape_string($conn, $_POST['inlagg']);
