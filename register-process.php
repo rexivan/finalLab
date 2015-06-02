@@ -38,15 +38,11 @@ if(! mysqli_query($conn, $sql)){
 }
 		alertEcho('Registration successfull!', 'index.php');
 }
-else{
-		alertEcho('You need to enter a valid email and username.', 'register.php');}
+}
 }
 else{
-		alertEcho('Passwords do not match.', 'register.php');
-	}
+	alertEcho('Registration unsuccessfull!', 'register.php');
 }
-else{
-alertEcho('That email is already in use!', 'register.php');
-}
+
 ?>
 </html>
