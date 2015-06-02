@@ -27,9 +27,8 @@ $sqlmail = "SELECT * FROM db_usrs WHERE db_eadress = '$varEmailaddress'";
 $result = mysqli_query($conn, $sqlmail);
 $number_of_rows = mysqli_num_rows($result);
 
-if ($number_of_rows = 0){
-if($varLosenord == $varLosenord2){
-if(0===count($phpArray)) {
+//if(number_of_rows == 0)
+if($varLosenord == $varLosenord2 && 0===count($phpArray) && $number_of_rows == 0){
 $sql = "INSERT INTO db_usrs (db_eadress, db_pw, db_slt, db_usr) VALUES ('$varEmailaddress', '$hash', '$salt', '$varUsr')" ;
 
 if(! mysqli_query($conn, $sql)){
@@ -37,8 +36,6 @@ if(! mysqli_query($conn, $sql)){
 
 }
 		alertEcho('Registration successfull!', 'index.php');
-}
-}
 }
 else{
 	alertEcho('Registration unsuccessfull!', 'register.php');

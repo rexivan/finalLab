@@ -36,7 +36,7 @@ session_start();
 		<form method="link" action="register.php">
 		<input type="submit" value="Register">
 		</form>
-	<script src="main.js"></script>
+	<script src="java/main.js"></script>
 
 	</body>
 </html>
